@@ -5,4 +5,9 @@ import org.springframework.data.mongodb.core.mapping.Document
 import java.time.Instant
 
 @Document(collection = "cars")
-class Car(@Id val id: Int, val name: String, val description: String?, val createdAt: Instant)
+data class Car(
+    @Id val id: Int,
+    val name: String,
+    val description: String?,
+    val createdAt: Instant
+    )

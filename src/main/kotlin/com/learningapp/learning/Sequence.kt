@@ -8,4 +8,4 @@ data class Sequence(
     @Id
     val id: String,
     val seq: Int
-)
+    )
