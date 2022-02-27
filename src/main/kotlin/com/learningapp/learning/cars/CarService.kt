@@ -1,6 +1,8 @@
 package com.learningapp.learning.cars
 
 import com.learningapp.learning.SequenceService
+import org.springframework.data.mongodb.repository.Query
+import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import java.time.Instant
 
@@ -18,7 +20,12 @@ class CarService(private val carRepository: CarRepository, private val sequenceS
         return carRepository.save(car)
     }
     fun getAllCars(): List<Car> = carRepository.findAll()
-    fun getCar(carId: Int) = carRepository.findById(carId)
-    fun deleteCar(carId: Int) = carRepository.deleteById(carId)
+    fun getCar(carId: Int): Car? = carRepository.findByIdOrNull(carId)
+    fun deleteCar(carId: Int): Car? {
+        val car = carRepository.findByIdOrNull(carId)
+        car ?: return null
+        carRepository.delete(car)
+        return car
+    }
 
 }
