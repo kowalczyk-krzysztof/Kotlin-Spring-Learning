@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository
 import java.util.*
 
 @Repository
-interface CarRepository: MongoRepository<Car, String> {
-    fun findByName(name: String): Optional<Car>
+interface CarRepository: MongoRepository<Car, Int> {
+    fun findByName(name: String): Car?
 }
