@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*
 class CarsController(private val carService: CarService) {
 
     @PostMapping("add")
-    fun addCar(@RequestParam name: String) = ResponseEntity.status(201).body(carService.addCar((name)))
+    fun addCar(@RequestBody carRequest: CarRequest) = ResponseEntity.status(201).body(carService.addCar((carRequest)))
 
     @GetMapping("all")
     fun getCars() = ResponseEntity.ok(carService.getAllCars())
