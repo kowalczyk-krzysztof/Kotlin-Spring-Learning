@@ -5,6 +5,7 @@ plugins {
 	id("io.spring.dependency-management") version "1.0.11.RELEASE"
 	kotlin("jvm") version "1.6.10"
 	kotlin("plugin.spring") version "1.6.10"
+    id("org.ec4j.editorconfig") version "0.0.3"
 }
 
 group = "com.learning-app"
